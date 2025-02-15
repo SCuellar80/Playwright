@@ -3,7 +3,7 @@ from page_excel import ExcelReader
 
 playwright = sync_playwright().start()
 chromium = playwright.chromium
-browser = chromium.launch(headless=False)
+browser = chromium.launch(headless=True)
 driver = browser.new_page()
 driver.goto("https://rpachallenge.com/")
 
@@ -15,14 +15,14 @@ excel_data = excel_reader.read_excel_data()
 
 for row in excel_data:
 
-    labelFirstName = driver.query_selector("//input[@ng-reflect-name='labelFirstName']")
-    labelLastName = driver.query_selector("//input[@ng-reflect-name='labelLastName']")
-    labelCompanyName = driver.query_selector( "//input[@ng-reflect-name='labelCompanyName']")
-    labelRole = driver.query_selector( "//input[@ng-reflect-name='labelRole']")
-    labelAddress = driver.query_selector("//input[@ng-reflect-name='labelAddress']")
-    labelEmail = driver.query_selector("//input[@ng-reflect-name='labelEmail']")
-    labelPhone = driver.query_selector("//input[@ng-reflect-name='labelPhone']")
-    buttonSubmit = driver.query_selector( "input[value*='Submit']")
+    labelFirstName = driver.locator("//input[@ng-reflect-name='labelFirstName']")
+    labelLastName = driver.locator("//input[@ng-reflect-name='labelLastName']")
+    labelCompanyName = driver.locator( "//input[@ng-reflect-name='labelCompanyName']")
+    labelRole = driver.locator( "//input[@ng-reflect-name='labelRole']")
+    labelAddress = driver.locator("//input[@ng-reflect-name='labelAddress']")
+    labelEmail = driver.locator("//input[@ng-reflect-name='labelEmail']")
+    labelPhone = driver.locator("//input[@ng-reflect-name='labelPhone']")
+    buttonSubmit = driver.locator( "input[value*='Submit']")
 
     labelFirstName.fill(row[0])
     labelLastName.fill(row[1])
