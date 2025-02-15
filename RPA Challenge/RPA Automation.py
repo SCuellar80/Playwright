@@ -15,14 +15,14 @@ excel_data = excel_reader.read_excel_data()
 
 for row in excel_data:
 
-    labelFirstName = driver.locator("//input[@ng-reflect-name='labelFirstName']")
-    labelLastName = driver.locator("//input[@ng-reflect-name='labelLastName']")
-    labelCompanyName = driver.locator( "//input[@ng-reflect-name='labelCompanyName']")
-    labelRole = driver.locator( "//input[@ng-reflect-name='labelRole']")
-    labelAddress = driver.locator("//input[@ng-reflect-name='labelAddress']")
-    labelEmail = driver.locator("//input[@ng-reflect-name='labelEmail']")
-    labelPhone = driver.locator("//input[@ng-reflect-name='labelPhone']")
-    buttonSubmit = driver.locator( "input[value*='Submit']")
+    labelFirstName = driver.query_selector("//input[@ng-reflect-name='labelFirstName']")
+    labelLastName = driver.query_selector("//input[@ng-reflect-name='labelLastName']")
+    labelCompanyName = driver.query_selector( "//input[@ng-reflect-name='labelCompanyName']")
+    labelRole = driver.query_selector( "//input[@ng-reflect-name='labelRole']")
+    labelAddress = driver.query_selector("//input[@ng-reflect-name='labelAddress']")
+    labelEmail = driver.query_selector("//input[@ng-reflect-name='labelEmail']")
+    labelPhone = driver.query_selector("//input[@ng-reflect-name='labelPhone']")
+    buttonSubmit = driver.query_selector( "input[value*='Submit']")
 
     labelFirstName.fill(row[0])
     labelLastName.fill(row[1])
